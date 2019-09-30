@@ -1,0 +1,3 @@
+﻿  Source.cpp
+c:\users\st50109\source\repos\session01\session01\allocationmemory.h(27): warning C4172: Vrací adresu lokální proměnné nebo dočasné: i.
+  Session01.vcxproj -> C:\Users\st50109\source\repos\Session01\Debug\Session01.exe
