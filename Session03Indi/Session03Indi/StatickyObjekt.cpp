@@ -1,7 +1,9 @@
 #include "StatickyObjekt.h"
 
-StatickyObjekt::StatickyObjekt(int aId, TypPrekazky aTypPrekazky)
+StatickyObjekt::StatickyObjekt(int aId, TypPrekazky aTypPrekazky) : Objekt(aId)
 {
+	Objekt* objekt = new Objekt(aId);
+	this->typPrekazky = aTypPrekazky;
 }
 
 StatickyObjekt::~StatickyObjekt()
@@ -10,5 +12,5 @@ StatickyObjekt::~StatickyObjekt()
 
 TypPrekazky & StatickyObjekt::getTypPrekazky()
 {
-	// TODO: Sem vložte návratový pøíkaz.
+	this->typPrekazky;
 }

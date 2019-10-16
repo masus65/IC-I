@@ -2,30 +2,27 @@
 
 Objekt::Objekt(int id)
 {
-	this->id = id;
 }
 
 double Objekt::GetX() const
 {
-	return this->x;
+	return 0.0;
 }
 
 double Objekt::GetY() const
 {
-	return this->y;
+	return 0.0;
 }
 
 double Objekt::GetId() const
 {
-	return this->id;
+	return 0.0;
 }
 
 void Objekt::SetX(double aX)
 {
-	this->x = aX;
 }
 
 void Objekt::SetY(double aY)
 {
-	this->y = aY;
 }

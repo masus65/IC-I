@@ -2,20 +2,18 @@
 
 int Monsturm::getHp() const
 {
-	return this->hp;
+	return 0;
 }
 
 int Monsturm::getMaxHp() const
 {
-	return this->maxhp;
+	return 0;
 }
 
 void Monsturm::setHp(int aHp)
 {
-	this->hp = aHp;
 }
 
 void Monsturm::setMaxHp(int aMaxHp)
 {
-	this->maxhp = aMaxHp;
 }
