@@ -1,4 +1,5 @@
 #include "TelefonniSeznam.h"
+#include "Exception.h"
 
 void Model::TelefonniSeznam::pridejOsobu(Entity::Osoba o)
 {
@@ -10,28 +11,36 @@ void Model::TelefonniSeznam::pridejOsobu(Entity::Osoba o)
 
 std::string Model::TelefonniSeznam::najdiTelefon(std::string jmeno) const
 {
-	if (jmeno._Equal(NULL))
-		throw std::exception{""};
+	if (jmeno._Equal(""))
+		throw WrongInputException("The input parameter is not valid.");
 	PrvekSeznamu* prvekSeznamu = _zacatek;
 	while (prvekSeznamu != nullptr) {
-		if (prvekSeznamu->data.jmeno == jmeno)
-			return prvekSeznamu->data.telefon;
+		if (prvekSeznamu->data.getJmeno() == jmeno)
+			return prvekSeznamu->data.getTelefon();
 		prvekSeznamu = prvekSeznamu->dalsi;
 	}
-	// TODO: throw an exception
-	return NULL;
+	throw NoSuchElementException("Person with the specified id is not situated in the list.");
 }
 
 std::string Model::TelefonniSeznam::najdiTelefon(int id) const
 {
-	if (id == NULL)
-		throw  std::exception{""};
+	if (id <= 0)
+		throw WrongInputException("The input parameter is not valid.");
 	PrvekSeznamu* prvekSeznamu = _zacatek;
 	while (prvekSeznamu != nullptr) {
-		if (prvekSeznamu->data.id == id)
-			return prvekSeznamu->data.telefon;
+		if (prvekSeznamu->data.getId() == id)
+			return prvekSeznamu->data.getTelefon();
 		prvekSeznamu = prvekSeznamu->dalsi;
 	}
-	// TODO: throw an exception
-	return NULL;
+	throw NoSuchElementException("Person with the specified id is not situated in the list.");
+}
+
+void Model::TelefonniSeznam::smazSeznam()const
+{
+	PrvekSeznamu* prvek = _zacatek;
+	while (prvek != nullptr) {
+		PrvekSeznamu* tmp = prvek->dalsi;
+		delete prvek;
+		prvek = tmp;
+	}
 }

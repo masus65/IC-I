@@ -115,10 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="Osoba.h" />
     <ClInclude Include="TelefonniSeznam.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Exception.cpp" />
+    <ClCompile Include="Osoba.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TelefonniSeznam.cpp" />
   </ItemGroup>

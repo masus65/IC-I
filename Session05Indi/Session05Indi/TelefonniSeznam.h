@@ -8,7 +8,7 @@
 namespace Model {
 	class TelefonniSeznam {
 	public:
-		class PrvekSeznamu {
+		struct PrvekSeznamu {
 		private:
 
 		public:
@@ -24,6 +24,9 @@ namespace Model {
 		void pridejOsobu(Entity::Osoba o); // o Pøidá osobu do seznamu
 		std::string najdiTelefon(std::string jmeno) const;
 		std::string najdiTelefon(int id) const; // Pokud je jméno osoby prázdné nebo id záporné je vyvolána výjimky oznamující  neplatný vstupní parametr.  Pokud zadaná osoba není v seznamu, metody vyvolají výjimku.
+		TelefonniSeznam() : _zacatek(nullptr) {}
+		void smazSeznam()const;
+
 
 // Výjimky budou reprezentovány vhodnými tøídami(využijte standardní knihovnu nebo implementujte vlastní, vyvolané výjimky musí reprezentovat dvì rùzné tøídy se spoleèným pøedkem).
 

@@ -7,13 +7,19 @@
 //Vytvoøte tøídu Osoba(atributy string jmeno, string telefon, int id) ve jmenném prostoru Entity.
 namespace Entity{
 	class Osoba {
-	public:
+	private:
 		std::string jmeno;
 		std::string telefon;
 		int id;
 
 	public:
-		//Osoba() : jmeno(""), telefon(""), id(0) {}
+		Osoba();
+		Osoba(std::string jmeno, std::string telefon, int id);
+		~Osoba();
+
+		int getId() const;
+		std::string getJmeno() const;
+		std::string getTelefon() const;
 	};
 }
 #endif // !_OSOBA_H
