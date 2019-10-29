@@ -29,3 +29,8 @@ void Objekt::SetY(double aY)
 {
 	this->y = aY;
 }
+
+void Objekt::setId(int aId)
+{
+	this->id = aId;
+}

@@ -8,19 +8,18 @@
 class Hra {
 private:
 	Objekt** objekty; // Atribut : Objekt * * objekty -> Dynamicky alokované pole ukazatelù na Objekt
-
-	int pocetObjektu; //--
-//	int velikostPoleObjektu; //--
+	int pocetObjektu;
+	int velikostPoleObjektu;
+	PohyblivyObjekt** resizeArray(PohyblivyObjekt**& pole, int pocetPrvku);
+	int* resizeArray(int*& pole, int pocetPrvku);
 
 public:
-//	Hra(int velikostPoleObjektu); //--
-	Hra();
-	~Hra();
 	void vlozObjekt(Objekt* o); // Vloží objekt do pole.
 	int* najdiIdStatickychObjektu(double xMin, double xMax, double yMin, double yMax); // Vrátí pole id všech statických objektù v zadaných souøadnicích.
 	PohyblivyObjekt** najdiPohybliveObjektyVOblasti(double x, double y, double r); // Vrátí pole ukazelù na pohyblivé objekty v kruhové oblasti(S = [x, y], radius = r).
 	PohyblivyObjekt** najdiPohybliveObjektyVOblasti(double x, double y, double r, double uMin, double uMax); // Viz pøedchozí, navíc kontrola úhlu natoèení.
-
+	Hra(int velikostPoleObjektu);
+	int getPocetObjektu();
 };
 
 #endif // !HRA_H

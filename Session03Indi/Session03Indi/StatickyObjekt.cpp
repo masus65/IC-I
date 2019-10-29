@@ -1,16 +1,11 @@
 #include "StatickyObjekt.h"
 
-StatickyObjekt::StatickyObjekt(int aId, TypPrekazky aTypPrekazky) : Objekt(aId)
-{
-	Objekt* objekt = new Objekt(aId);
+
+
+StatickyObjekt::StatickyObjekt(int aId, TypPrekazky aTypPrekazky) :Objekt(aId) {
+	this->id = aId;
 	this->typPrekazky = aTypPrekazky;
 }
-
-StatickyObjekt::~StatickyObjekt()
-{
-}
-
-TypPrekazky & StatickyObjekt::getTypPrekazky()
-{
-	this->typPrekazky;
+TypPrekazky StatickyObjekt::getTypPrekazky(){
+	return typPrekazky;
 }

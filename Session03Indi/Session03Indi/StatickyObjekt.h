@@ -4,7 +4,9 @@
 
 #include "Objekt.h"
 
-enum class TypPrekazky { Skala, MalaRostlina, VelkaRostlina };
+enum TypPrekazky {
+	Skala, MalaRostlina, VelkaRostlina
+};
 
 
 // Tøída StatickyObjekt - Potomek Objekt 
@@ -14,8 +16,9 @@ private:
 
 public:
 	StatickyObjekt(int aId, TypPrekazky aTypPrekazky); // Parametrický konstruktor(id, typPrekazky)
-	~StatickyObjekt();
-	TypPrekazky& getTypPrekazky(); // Getter: typPrekazky
+	TypPrekazky getTypPrekazky(); // Getter: typPrekazky
 };
 
 #endif // !STATICKY_OBJEKT_H
+
+

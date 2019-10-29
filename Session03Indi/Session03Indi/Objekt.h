@@ -4,12 +4,13 @@
 
 // Tøida Objekt     
 class Objekt {
-private:
-	int id; // Atributy : int id, double x, double y
+private:// Atributy : int id, double x, double y
+	
 	double x;
 	double y;
 
 public:
+	int id;
 	Objekt(int id); // Parametrický konstruktor : id - Neparametrický konstruktor nevytváøet!
 	virtual ~Objekt() {}; // Definujte virtuální destruktor : virtual ~Objekt() { }
 
@@ -19,6 +20,7 @@ public:
 
 	void SetX(double aX); // Setter : x, y
 	void SetY(double aY);
+	void setId(int aId);
 };
 
 

@@ -9,9 +9,9 @@ private:
 	double uhelNatoceni; // Atribut : double uhelNatoceni(getter, setter; hodnota 0 – 2 * pi, 0 – sever, pi - jih)
 
 public:
-	double getUhelNatoceni() const; // getter
-
+	PohyblivyObjekt();
 	void setUhelNatoceni(double aUhelNatoceni); // setter
+	double getUhelNatoceni() const; // getter
 
 };
 
