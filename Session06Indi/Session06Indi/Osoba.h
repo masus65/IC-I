@@ -4,18 +4,22 @@
 #include <string>
 #include "Adresa.h"
 #include "Datum.h"
+#include "Osoba.h"
 
 // Osoba(string _jmeno, string _prijmeni, Adresa _trvaleBydliste, Datum _datumNarozeni).
-struct Osoba{
+class Osoba{
+private:
 	std::string _jmeno;
 	std::string _prijmeni;
 	Adresa _trvaleBydliste;
 	Datum _datumNarozeni;
 
-	//Osoba(std::string _aJmeno, std::string _aPrijmeni, Adresa _aTrvaleBydliste, Datum _aDatumNarozeni);
-	//Osoba();
-	//~Osoba();
-
+public:
+	Osoba(std::string _aJmeno, std::string _aPrijmeni, Adresa _aTrvaleBydliste, Datum _aDatumNarozeni);
+	Osoba();
+	~Osoba();
+	friend std::ostream& operator<<(std::ostream& os, const Osoba& p);
+	friend std::istream& operator>>(std::istream& is, Osoba& p);
 };
 
 #endif // !OSOBA_H

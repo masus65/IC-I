@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{84CA9666-68C1-4587-990A-40CA92CC09CB}</ProjectGuid>
-    <RootNamespace>Session06Indi</RootNamespace>
+    <ProjectGuid>{508A7F59-9375-47B4-90A1-628D6FE40F7D}</ProjectGuid>
+    <RootNamespace>Session07Indi</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,15 +115,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Adresa.h" />
-    <ClInclude Include="Datum.h" />
-    <ClInclude Include="Osoba.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Adresa.cpp" />
-    <ClCompile Include="Datum.cpp" />
-    <ClCompile Include="Osoba.cpp" />
-    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
