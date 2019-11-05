@@ -115,6 +115,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Adresa.h" />
+    <ClInclude Include="Datum.h" />
+    <ClInclude Include="Osoba.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Adresa.cpp" />
+    <ClCompile Include="Datum.cpp" />
+    <ClCompile Include="Osoba.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
