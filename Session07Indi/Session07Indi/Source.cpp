@@ -6,7 +6,6 @@
 #include <string>
 #define VELIKOST_POLE 3
 
-
 using namespace std;
 
 void vypis(std::vector<Osoba> osoba) {
