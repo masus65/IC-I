@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Matice.h""
 
-
 int main()
 {
 	Matice<int> m{ 3,3 };
