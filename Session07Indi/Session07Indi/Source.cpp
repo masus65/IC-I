@@ -49,6 +49,27 @@ void uloz() {
 		}
 	}
 
+	/////////////////////////
+	Osoba people[VELIKOST_POLE] = { Osoba("Name1", "lastName1", Adresa("Street1", "City1", 111), Datum(1, 1, 1111)),
+									Osoba("Name2", "lastName2", Adresa("Street2", "City2", 222), Datum(2, 2, 2222)),
+									Osoba("Name3", "lastName3", Adresa("Street3", "City3", 333), Datum(3, 3, 3333)) };
+
+	std::ofstream binFile("session07-2.dat", std::ios::binary);
+	if (binFile.is_open())
+	{
+		for (int i = 0; i < VELIKOST_POLE; i++)
+		{
+			people[i].write(&binFile);
+		}
+		binFile.close();
+
+		std::cout << "ulozeno";
+	}
+	else
+	{
+		throw std::exception("soubor neotevren");
+	}
+
 }
 
 //Ve funkci nacti() naètìte osoby ze souboru do pole a vypište je na obrazovku.Pøi naèítání pole dynamicky alokujte, vhodným zpùsobem zjistìte poèet záznamù v souboru.
@@ -71,6 +92,37 @@ void nacti() {
 	}
 	vypis(osoby, VELIKOST_POLE);
 	delete[] osoby;
+
+
+	////////////////////////////////////////////
+	/*Osoba temp;
+
+	std::ifstream binFile("session07-2.dat", std::ios::binary);
+	if (binFile.is_open())
+	{
+		Osoba* nacteneOsoby = new Osoba[0];
+		int numberOfObjects = 0;
+		for (int i = 0; i < 3; i++)
+		{
+			Osoba* docasnaOsoba = new Osoba[numberOfObjects + 1];
+			docasnaOsoba = nacteneOsoby;
+
+			nacteneOsoby = new Osoba[numberOfObjects + 1];
+			for (int i = 0; i < numberOfObjects; i++)
+			{
+				nacteneOsoby[i] = docasnaOsoba[i];
+			}
+			temp.read(&binFile);
+			nacteneOsoby[numberOfObjects] = temp;
+			numberOfObjects++;
+			delete[] docasnaOsoba;
+		}
+
+		binFile.close();
+		std::cout << "DATA LOADED" << std::endl;
+		vypis(nacteneOsoby, numberOfObjects);
+		delete[] nacteneOsoby;
+	}*/
 
 }
 

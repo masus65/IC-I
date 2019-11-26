@@ -16,6 +16,9 @@ public:
 	~Datum();
 	friend std::ostream& operator<<(std::ostream& os, const Datum& d);
 	friend std::istream& operator>>(std::istream& is, Datum& d);
+	int getDne() const { return _dne; };
+	int getMesic() const { return _mesic; };
+	int getRok() const { return _rok; };
 
 };
 

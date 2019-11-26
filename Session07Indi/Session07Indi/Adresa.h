@@ -16,6 +16,9 @@ public:
 	Adresa();
 	friend std::ostream& operator<<(std::ostream& os, const Adresa& dt);
 	friend std::istream& operator>>(std::istream& is, Adresa& dt);
+	std::string getUlice() const { return _ulice; };
+	std::string getMesto() const { return _mesto; };
+	int getPsc() const { return _psc; };
 };
 
 

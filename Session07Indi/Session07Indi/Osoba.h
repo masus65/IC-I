@@ -20,6 +20,8 @@ public:
 	~Osoba();
 	friend std::ostream& operator<<(std::ostream& os, const Osoba& p);
 	friend std::istream& operator>>(std::istream& is, Osoba& p);
+	void read(std::ifstream *in);
+	void write(std::ofstream *out);
 };
 
 #endif // !OSOBA_H
