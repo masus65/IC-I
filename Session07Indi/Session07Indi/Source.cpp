@@ -48,7 +48,7 @@ void uloz() {
 		}
 	}
 
-	/////////////////////////
+	////////////////////////
 	Osoba people[VELIKOST_POLE] = { Osoba("Name1", "lastName1", Adresa("Street1", "City1", 111), Datum(1, 1, 1111)),
 									Osoba("Name2", "lastName2", Adresa("Street2", "City2", 222), Datum(2, 2, 2222)),
 									Osoba("Name3", "lastName3", Adresa("Street3", "City3", 333), Datum(3, 3, 3333)) };
