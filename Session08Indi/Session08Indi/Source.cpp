@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Matice.h""
-
 int main()
 {
 	Matice<int> m{ 3,3 };
@@ -19,4 +18,4 @@ int main()
 	t.NastavZ(tpole);
 	std::cout << "r==t ? " << (r.JeShodna(t) ? "true" : "false") << std::endl;
 	return 0;
-}
+}
