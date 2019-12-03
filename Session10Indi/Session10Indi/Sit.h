@@ -10,7 +10,7 @@ public:
 	void pripoj(ASitovyPrvek* sitovyPrvek);
 	void provadejVse(); 
 private:
-	static void nejakSeJmenuje(ASitovyPrvek* sitovyPrvek);
+	static void Proved(ASitovyPrvek* sitovyPrvek);
 
 	static int _idZpravy;
 	Fronta<ASitovyPrvek*> _sitovePrvky;

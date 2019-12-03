@@ -14,10 +14,10 @@ void Sit::pripoj(ASitovyPrvek * sitovyPrvek){
 }
 
 void Sit::provadejVse(){
-	_sitovePrvky.ZpracujPrvky(nejakSeJmenuje);
+	_sitovePrvky.ZpracujPrvky(Proved);
 	//_sitovePrvky.ZpracujPrvky([](ASitovyPrvek* sp) {sp->provadej(); });
 }
 
-void Sit::nejakSeJmenuje(ASitovyPrvek * sitovyPrvek){
+void Sit::Proved(ASitovyPrvek * sitovyPrvek){
 	sitovyPrvek->provadej();
 }
