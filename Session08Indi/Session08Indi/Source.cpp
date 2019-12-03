@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Matice.h"
-int main()
-{
+
+int main(){
 	Matice<int> m{ 3,3 };
 	int jednodpole[] = { 0,1,2,3,4,5,6,7,8 };
 	m.NastavZ(jednodpole);
