@@ -8,61 +8,61 @@ template <typename T>
 
 class Matice {
 public:
-	Matice(int rowCount, int columnCount);
+	Matice(int radky, int sloupce);
 	Matice(const Matice<T>& m);
 	~Matice();
-	void Nastav(int row, int column, T value);
-	void NastavZ(T* arr);
-	T& get(int row, int column);
-	const T& get(int row, int column) const;
+	void Nastav(int radek, int sloupec, T data);
+	void NastavZ(T* pole);
+	T& get(int radek, int sloupec);
+	const T& get(int radek, int sloupec) const;
 
 	template <typename R>
 	Matice<R> Pretypuj();
 
 	Matice<T> Transpozice() const;
 	Matice<T> Soucin(const Matice& m) const;
-	Matice<T> Soucin(T scalar);
+	Matice<T> Soucin(T skalar);
 	Matice<T> Soucet(const Matice& m) const;
-	Matice<T> Soucet(T scalar);
+	Matice<T> Soucet(T skalar);
 
 	bool JeShodna(const Matice& m);
 
-	void print() const;
+	void vypis() const;
 
 private:
-	T** _values;
-	int _rowCount;
-	int _columnCount;
+	T** _data;
+	int _radky;
+	int _sloupce;
 };
 
-#endif // !MATRIX_H
+#endif // !MATICE_H
 
 template<typename T>
-inline Matice<T>::Matice(int rowCount, int columnCount)
+inline Matice<T>::Matice(int radky, int sloupce)
 {
-	_rowCount = rowCount;
-	_columnCount = columnCount;
-	_values = new T *[_rowCount];
+	_radky = radky;
+	_sloupce = sloupce;
+	_data = new T *[_radky];
 
-	for (size_t i = 0; i < _rowCount; i++)
+	for (size_t i = 0; i < _radky; i++)
 	{
-		_values[i] = new T[_columnCount]{ 0 };
+		_data[i] = new T[_sloupce]{ 0 };
 	}
 }
 
 template<typename T>
 inline Matice<T>::Matice(const Matice<T>& m)
 {
-	_rowCount = m._rowCount;
-	_columnCount = m._columnCount;
-	_values = new T *[_rowCount];
+	_radky = m._radky;
+	_sloupce = m._sloupce;
+	_data = new T *[_radky];
 
-	for (size_t i = 0; i < _rowCount; i++)
+	for (size_t i = 0; i < _radky; i++)
 	{
-		_values[i] = new T[m._columnCount];
-		for (size_t j = 0; j < _columnCount; j++)
+		_data[i] = new T[m._sloupce];
+		for (size_t j = 0; j < _sloupce; j++)
 		{
-			_values[i][j] = m._values[i][j];
+			_data[i][j] = m._data[i][j];
 		}
 	}
 }
@@ -70,64 +70,64 @@ inline Matice<T>::Matice(const Matice<T>& m)
 template<typename T>
 inline Matice<T>::~Matice()
 {
-	for (size_t i = 0; i < _rowCount; i++)
+	for (size_t i = 0; i < _radky; i++)
 	{
-		delete[] _values[i];
+		delete[] _data[i];
 	}
-	delete[] _values;
+	delete[] _data;
 }
 
 template<typename T>
-inline void Matice<T>::Nastav(int row, int column, T value)
+inline void Matice<T>::Nastav(int radek, int sloupec, T data)
 {
-	if (row > _rowCount || column > _columnCount || row < 0 || column < 0)
+	if (radek > _radky || sloupec > _sloupce || radek < 0 || sloupec < 0)
 	{
 		throw std::invalid_argument("The entered index is not valid.");
 	}
-	_values[row][column] = value;
+	_data[radek][sloupec] = data;
 }
 
 template<typename T>
-inline void Matice<T>::NastavZ(T* arr)
+inline void Matice<T>::NastavZ(T* pole)
 {
-	for (size_t i = 0; i < _rowCount; i++)
+	for (size_t i = 0; i < _radky; i++)
 	{
-		for (size_t j = 0; j < _columnCount; j++)
+		for (size_t j = 0; j < _sloupce; j++)
 		{
-			_values[i][j] = arr[(i * this->_columnCount) + j];
+			_data[i][j] = pole[(i * this->_sloupce) + j];
 		}
 	}
 }
 
 template<typename T>
-inline T& Matice<T>::get(int row, int column)
+inline T& Matice<T>::get(int radek, int sloupec)
 {
-	if (row > _rowCount || column > _columnCount || row < 0 || column < 0)
+	if (radek > _radky || sloupec > _sloupce || radek < 0 || sloupec < 0)
 	{
 		throw std::invalid_argument("The entered index is not valid");
 	}
-	return _values[row][column];
+	return _data[radek][sloupec];
 }
 
 template<typename T>
-inline const T& Matice<T>::get(int row, int column) const
+inline const T& Matice<T>::get(int radek, int sloupec) const
 {
-	if (row > _rowCount || column > _columnCount || row < 0 || column < 0)
+	if (radek > _radky || sloupec > _sloupce || radek < 0 || sloupec < 0)
 	{
 		throw std::invalid_argument("The entered index is not valid");
 	}
-	return _values[row][column];
+	return _data[radek][sloupec];
 }
 
 template<typename T>
 inline Matice<T> Matice<T>::Transpozice() const
 {
-	Matice<T> transponded{ _columnCount, _rowCount };
-	for (size_t i = 0; i < _rowCount; i++)
+	Matice<T> transponded{ _sloupce, _radky };
+	for (size_t i = 0; i < _radky; i++)
 	{
-		for (size_t j = 0; j < _columnCount; j++)
+		for (size_t j = 0; j < _sloupce; j++)
 		{
-			transponded._values[i][j] = _values[j][i];
+			transponded._data[i][j] = _data[j][i];
 		}
 	}
 	return transponded;
@@ -136,19 +136,19 @@ inline Matice<T> Matice<T>::Transpozice() const
 template<typename T>
 inline Matice<T> Matice<T>::Soucin(const Matice& m) const
 {
-	if (_columnCount == m._rowCount)
+	if (_sloupce == m._radky)
 	{
-		Matice<T> newMatrix{ _rowCount, _columnCount };
+		Matice<T> newMatrix{ _radky, _sloupce };
 		T sum = 0;
-		for (size_t i = 0; i < _rowCount; i++)
+		for (size_t i = 0; i < _radky; i++)
 		{
-			for (size_t j = 0; j < m._columnCount; j++)
+			for (size_t j = 0; j < m._sloupce; j++)
 			{
-				for (size_t z = 0; z < m._rowCount; z++)
+				for (size_t z = 0; z < m._radky; z++)
 				{
-					sum = sum + _values[i][z] * m._values[z][j];
+					sum = sum + _data[i][z] * m._data[z][j];
 				}
-				newMatrix._values[i][j] = sum;
+				newMatrix._data[i][j] = sum;
 				sum = 0;
 			}
 		}
@@ -161,16 +161,16 @@ inline Matice<T> Matice<T>::Soucin(const Matice& m) const
 }
 
 template<typename T>
-inline Matice<T> Matice<T>::Soucin(T scalar)
+inline Matice<T> Matice<T>::Soucin(T skalar)
 {
-	if constexpr (std::is_arithmetic_v<scalar>)
+	if constexpr (std::is_arithmetic_v<skalar>)
 	{
-		Matice<T> newMatrix{ _rowCount, _columnCount };
-		for (size_t i = 0; i < _rowCount; i++)
+		Matice<T> newMatrix{ _radky, _sloupce };
+		for (size_t i = 0; i < _radky; i++)
 		{
-			for (size_t j = 0; j < _columnCount; j++)
+			for (size_t j = 0; j < _sloupce; j++)
 			{
-				newMatrix._values[i][j] = scalar * newMatrix._values[i][j];
+				newMatrix._data[i][j] = skalar * newMatrix._data[i][j];
 			}
 		}
 		return newMatrix;
@@ -184,14 +184,14 @@ inline Matice<T> Matice<T>::Soucin(T scalar)
 template<typename T>
 inline Matice<T> Matice<T>::Soucet(const Matice& m) const
 {
-	if (_rowCount == m._rowCount && _columnCount == m._columnCount)
+	if (_radky == m._radky && _sloupce == m._sloupce)
 	{
-		Matice<T> newMatrix{ _rowCount, _columnCount };
-		for (size_t i = 0; i < _rowCount; i++)
+		Matice<T> newMatrix{ _radky, _sloupce };
+		for (size_t i = 0; i < _radky; i++)
 		{
-			for (size_t j = 0; j < _columnCount; j++)
+			for (size_t j = 0; j < _sloupce; j++)
 			{
-				newMatrix._values[i][j] = _values[i][j] + m._values[i][j];
+				newMatrix._data[i][j] = _data[i][j] + m._data[i][j];
 			}
 		}
 		return newMatrix;
@@ -203,16 +203,16 @@ inline Matice<T> Matice<T>::Soucet(const Matice& m) const
 }
 
 template<typename T>
-inline Matice<T> Matice<T>::Soucet(T scalar)
+inline Matice<T> Matice<T>::Soucet(T skalar)
 {
-	if constexpr (std::is_arithmetic_v<scalar>)
+	if constexpr (std::is_arithmetic_v<skalar>)
 	{
-		Matice<T> newMatrix{ _rowCount, _columnCount };
-		for (size_t i = 0; i < _rowCount; i++)
+		Matice<T> newMatrix{ _radky, _sloupce };
+		for (size_t i = 0; i < _radky; i++)
 		{
-			for (size_t j = 0; j < _columnCount; j++)
+			for (size_t j = 0; j < _sloupce; j++)
 			{
-				newMatrix._values[i][j] = newMatrix._values[i][j] + scalar;
+				newMatrix._data[i][j] = newMatrix._data[i][j] + skalar;
 			}
 		}
 		return newMatrix;
@@ -226,13 +226,13 @@ inline Matice<T> Matice<T>::Soucet(T scalar)
 template<typename T>
 inline bool Matice<T>::JeShodna(const Matice& m)
 {
-	if (m._rowCount == _rowCount && m._columnCount == _columnCount)
+	if (m._radky == _radky && m._sloupce == _sloupce)
 	{
-		for (size_t i = 0; i < _rowCount; i++)
+		for (size_t i = 0; i < _radky; i++)
 		{
-			for (size_t j = 0; j < _columnCount; j++)
+			for (size_t j = 0; j < _sloupce; j++)
 			{
-				if (_values[i][j] != m._values[i][j])
+				if (_data[i][j] != m._data[i][j])
 				{
 					return false;
 				}
@@ -247,13 +247,13 @@ inline bool Matice<T>::JeShodna(const Matice& m)
 }
 
 template<typename T>
-inline void Matice<T>::print() const
+inline void Matice<T>::vypis() const
 {
-	for (size_t i = 0; i < _rowCount; i++)
+	for (size_t i = 0; i < _radky; i++)
 	{
-		for (size_t j = 0; j < _columnCount; j++)
+		for (size_t j = 0; j < _sloupce; j++)
 		{
-			std::cout << _values[i][j] << '\t';
+			std::cout << _data[i][j] << '\t';
 		}
 		std::cout << std::endl;
 	}
@@ -263,10 +263,10 @@ template<typename T>
 template<typename R>
 inline Matice<R> Matice<T>::Pretypuj()
 {
-	Matice<R> newMatrix{ _rowCount, _columnCount };
-	for (size_t i = 0; i < _rowCount; i++)
+	Matice<R> newMatrix{ _radky, _sloupce };
+	for (size_t i = 0; i < _radky; i++)
 	{
-		for (size_t j = 0; j < _columnCount; j++)
+		for (size_t j = 0; j < _sloupce; j++)
 		{
 			newMatrix.Nastav(i, j, static_cast<R>(get(i, j)));
 		}
